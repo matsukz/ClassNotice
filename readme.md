@@ -1,4 +1,6 @@
 # 参考
+[pythonによるスケジュール(計画実行)プログラム](https://qiita.com/hiratarich/items/3e932b84b599762ed913)（閲覧日2023年1月16日）
+
 [Pythonで現在時刻・日付・日時を取得](https://note.nkmk.me/python-datetime-now-today/)（閲覧日2023年1月16日）
 
 [Pythonで日付から曜日や月を文字列（日本語や英語など）で取得](https://note.nkmk.me/python-datetime-day-locale-function/)（閲覧日2023年1月16日）
