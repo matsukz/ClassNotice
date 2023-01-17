@@ -1,7 +1,7 @@
 {
     "Mon":{
         "1":{
-            "Time":"1045",
+            "Time":"145",
             "Class":"Introduction to Multimedia Information (A)"
         },
         "2":{
@@ -20,7 +20,7 @@
             "Class":null
         },
         "3":{
-            "Time":"1305",
+            "Time":"135",
             "Class":"Management Information:Special Lecture A"
         },
         "4":{
@@ -39,7 +39,7 @@
             "Class":"Introduction to Programming"
         },
         "2":{
-            "Time":"1045",
+            "Time":"145",
             "Class":"Business Science (A)"
         },
         "3":{
@@ -58,7 +58,7 @@
             "Class":null
         },
         "3":{
-            "Time":"1305",
+            "Time":"135",
             "Class":"Introduction to Marketing and E-Commerce (A)"
         },
         "4":{
@@ -77,11 +77,11 @@
             "Class":"Career Development b(E)"
         },
         "2":{
-            "Time":"1045",
+            "Time":"145",
             "Class":"Chinese 2 (E)"
         },
         "3":{
-            "Time":"1305",
+            "Time":"135",
             "Class":"Business Science (A)"
         },
         "4":{
