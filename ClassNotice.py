@@ -15,17 +15,15 @@ Week = [
     "Tue",
     "Wed",
     "Thu",
-    "Fri"
+    "Fri",
+    "Sat",
+    "Sun"
 ]
 
-SearchDate = Week[dt.weekday()]
+# 今日の曜日からJsonから引用するデータの位置を決める
+i = 0
+while not list(impjson.keys())[i] == Week[dt.weekday()]:
+    i = i + 1
+Today = list(impjson.keys())[i]
 
-print(impjson[list(impjson.keys())[dt.weekday()]]["1"]["Class"])
-
-#print(SearchDate)
-
-#while key == SearchDate:
-
-#print(key)
-
-#print(impjson[str(dt.weekday())]["10:50"])
+print(impjson[Today])
