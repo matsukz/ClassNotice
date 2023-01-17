@@ -1,6 +1,8 @@
 import json
 import datetime
 
+key=  ""
+
 dt = datetime.date.today()
 
 impjson = json.load(
@@ -10,8 +12,7 @@ impjson = json.load(
         encoding="utf-8"
     )
 )
-
-dList = [
+Week = [
     "Mon",
     "Tue",
     "Wed",
@@ -19,7 +20,15 @@ dList = [
     "Fri"
 ]
 
-SearchDate = dList[dt.weekday()]
+SearchDate = Week[dt.weekday()]
 
-print(SearchDate)
+print(list(impjson.keys())[dt.weekday()])
+
+#print(SearchDate)
+
+
+#while key == SearchDate:
+
+#print(key)
+
 #print(impjson[str(dt.weekday())]["10:50"])
