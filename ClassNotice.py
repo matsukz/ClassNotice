@@ -11,7 +11,7 @@ NowDate = datetime.date.today()
 
 impjson = json.load(
     open(
-        "classcopy.json",
+        "class.json",
         "r",
         encoding="utf-8"
     )
