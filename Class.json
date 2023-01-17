@@ -88,5 +88,19 @@
             "Time":"END",
             "Class":"END"
         }
+    },
+
+    "Sat":{
+        "1":{
+            "Time":"END",
+            "Class":"END"
+        }
+    },
+
+    "Sun":{
+        "1":{
+            "Time":"END",
+            "Class":"END"
+        }
     }
 }
