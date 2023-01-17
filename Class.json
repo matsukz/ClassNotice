@@ -1,10 +1,92 @@
 {
     "Mon":{
-        "1045":"Introduction to Multimedia Information (A)"
+        "1":{
+            "Time":"1045",
+            "Class":"Introduction to Multimedia Information (A)"
+        },
+        "2":{
+            "Time":"END",
+            "Class":"END"
+        }
     },
+
     "Tue":{
-        "845":"Chinese (E)",
-        "1305":"Management Information:Special Lecture A",
-        "1455":"Culture of the Chinese Speaking World b (B)"
+        "1":{
+            "Time":"845",
+            "Class":"Chinese (E)"
+        },
+        "2":{
+            "Time":null,
+            "Class":null
+        },
+        "3":{
+            "Time":"1305",
+            "Class":"Management Information:Special Lecture A"
+        },
+        "4":{
+            "Time":"1455",
+            "Class":"Culture of the Chinese Speaking World b (B)"
+        },
+        "5":{
+            "Time":"END",
+            "Class":"END"
+        } 
+    },
+
+    "Wed":{
+        "1":{
+            "Time":"845",
+            "Class":"Introduction to Programming"
+        },
+        "2":{
+            "Time":"1045",
+            "Class":"Business Science (A)"
+        },
+        "3":{
+            "Time":"END",
+            "Class":"END"
+        }
+    },
+
+    "Thu":{
+        "1":{
+            "Time":"845",
+            "Class":"Introduction to Bookkeeping &Accounting 2 (A)"
+        },
+        "2":{
+            "Time":null,
+            "Class":null
+        },
+        "3":{
+            "Time":"1305",
+            "Class":"Introduction to Marketing and E-Commerce (A)"
+        },
+        "4":{
+            "Time":"1455",
+            "Class":"Study Skills2 (5A)"
+        },
+        "5":{
+            "Time":"END",
+            "Class":"END"
+        }
+    },
+
+    "Fri":{
+        "1":{
+            "Time":"845",
+            "Class":"Career Development b(E)"
+        },
+        "2":{
+            "Time":"1045",
+            "Class":"Chinese 2 (E)"
+        },
+        "3":{
+            "Time":"1305",
+            "Class":"Business Science (A)"
+        },
+        "4":{
+            "Time":"END",
+            "Class":"END"
+        }
     }
 }
