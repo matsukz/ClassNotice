@@ -52,7 +52,7 @@ def CheckTime():
         elif impjson[Today][str(i)]["Time"] == NowTime:
             print(impjson[Today][str(i)]["Class"])
             i = i + 1
-            print("===Next " + str(i) + " ===")
+            print("==============")
 
         else:
             print("NOT MATCH")
