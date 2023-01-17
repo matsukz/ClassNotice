@@ -1,5 +1,6 @@
 import json
 import datetime
+import schedule
 
 dt = datetime.date.today()
 
@@ -20,10 +21,14 @@ Week = [
     "Sun"
 ]
 
-# 今日の曜日からJsonから引用するデータの位置を決める
 i = 0
 while not list(impjson.keys())[i] == Week[dt.weekday()]:
     i = i + 1
 Today = list(impjson.keys())[i]
 
-print(impjson[Today])
+i = 1
+print("===START===")
+while not impjson[Today][str(i)]["Class"] == "END":
+    print(impjson[Today][str(i)]["Class"])
+    i = i + 1
+print("===END===")
