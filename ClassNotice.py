@@ -1,8 +1,6 @@
 import json
 import datetime
 
-key=  ""
-
 dt = datetime.date.today()
 
 impjson = json.load(
@@ -22,10 +20,9 @@ Week = [
 
 SearchDate = Week[dt.weekday()]
 
-print(list(impjson.keys())[dt.weekday()])
+print(impjson[list(impjson.keys())[dt.weekday()]]["1"]["Class"])
 
 #print(SearchDate)
-
 
 #while key == SearchDate:
 
