@@ -3,19 +3,20 @@ import datetime
 import schedule
 import time
 
-print("===START===")
+print("===DAYSTART===")
 print(datetime.datetime.now())
-print("\n")
 
 NowDate = datetime.date.today()
-
-impjson = json.load(
-    open(
-        "class.json",
+loadjson = open(
+        "classcopy.json",
         "r",
         encoding="utf-8"
     )
-)
+
+impjson = json.load(loadjson)
+        
+
+print("DB:IMPJSON")
 Week = [
     "Mon",
     "Tue",
@@ -30,42 +31,44 @@ i = 0
 while not list(impjson.keys())[i] == Week[NowDate.weekday()]:
     i = i + 1
 Today = list(impjson.keys())[i]
+print(Today)
 
-i = 1
+loadjson.close()
+
+global ClassNo
+ClassNo = 1
+global StopFlag
+StopFlag = 0
 
 def CheckTime():
-    global i
-    print("===== " + str(i) + " =====")
-
-    Now = datetime.datetime.now()
-    NowTime = str(Now.hour) + str(Now.minute)
-    print("NowTime = " + NowTime)
-
+    global ClassNo
+    global StopFlag
+    print("===== " + str(ClassNo) + " =====")
+    Now = datetime.datetime.now().strftime("%H%M")
+    print("NowTime = " + Now)
     try:
-        print("JSON DATE Time = " + impjson[Today][str(i)]["Time"])
-
-        if impjson[Today][str(i)]["Time"] == "END":
+        if impjson[Today][str(ClassNo)]["Time"] == "END":
             print("END")
-            print("====END====")
-            exit()
-
-        elif impjson[Today][str(i)]["Time"] == NowTime:
-            print(impjson[Today][str(i)]["Class"])
-            i = i + 1
-            print("==============")
+            StopFlag = 1
+                
+        elif impjson[Today][str(ClassNo)]["Time"] == Now:
+            print(impjson[Today][str(ClassNo)]["Class"])
+            ClassNo = ClassNo + 1
 
         else:
             print("NOT MATCH")
 
     except TypeError:
         print("SKIP NULL")
-        i = i + 1
-        print("==============")
-    
-    print("\n")
+        ClassNo = ClassNo + 1
 
 schedule.every(1).minutes.do(CheckTime)
 
-while True:
+while StopFlag == 0:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(1)       
+#schedule.every().day.at("00:05").do(DAY)
+
+#while DayLoop == True:
+#    schedule.run_pending()
+#    time.sleep(1)
