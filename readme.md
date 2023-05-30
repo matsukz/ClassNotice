@@ -1,4 +1,4 @@
-# 課題
+# 抱えてる課題
 |発見日|問題|解決方法|解決済み|
 |:---:|:---:|:---:|:---:|
 |2023-01-17|プログラム実行ロード時間|全体を7:00(仮)に再ロードする。<br>時間比較は最終コマ通知後に終了させる||
@@ -16,3 +16,5 @@
 [Python - 辞書をリストに変換](https://codechacha.com/ja/python-convert-dict-to-list/)（閲覧日2023年1月17日）
 
 [英語で曜日の覚え方！意外と忘れがちなスペルや書き方など覚える方法とは](https://foreignlang.ecc.co.jp/know/k00020d/)（閲覧日2023年1月16日）
+
+[【Python】Discord に通知する BOT を作る](https://noitalog.tokyo/python-discord-notification-bot/)（閲覧日2023年5月30日）
