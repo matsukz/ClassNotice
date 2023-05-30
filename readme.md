@@ -1,3 +1,6 @@
+# 依存関係
+[python-discord-webhook - GitHub](https://github.com/lovvskillz/python-discord-webhook)
+
 # 抱えてる課題
 |発見日|問題|解決方法|解決済み|
 |:---:|:---:|:---:|:---:|
