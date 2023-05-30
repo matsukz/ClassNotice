@@ -6,7 +6,7 @@ from discord_webhook import DiscordWebhook
 
 StopFlag = 0
 
-Webhook_url = "https://discord.com/api/webhooks/1111462458666786816/Eb3K-BDKSoAORINFyfaBrH8lZDuMMpyG9IEEFYPSSLl9ENeT5OMJg-kI1G6_o3CmPsH4"
+Webhook_url = ""
 
 def DAY():
     global ClassNo
