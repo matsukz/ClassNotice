@@ -1,0 +1,9 @@
+[Unit]
+Description = ClassNotice
+
+[Service]
+ExecStart = python3 /opt/ClassNotice/ClassNotice.py
+Type = simple
+
+[Install]
+WantedBy=default.target

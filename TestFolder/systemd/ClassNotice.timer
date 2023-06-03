@@ -1,0 +1,9 @@
+[Unit]
+Description = Run ClassNotice.service at 08:00
+
+[Timer]
+OnCalender = *-*-* 08:40:00
+Unit = ClassNotice.service
+
+[Install]
+WantedBy = timers.target
