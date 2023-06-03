@@ -1,10 +1,16 @@
 {
+    "Webhook":"",
+
     "Mon":{
         "1":{
-            "Time":"145",
-            "Class":"Introduction to Multimedia Information (A)"
+            "Time":"1305",
+            "Class":"コンピュータ構成論"
         },
         "2":{
+            "Time":"1045",
+            "Class":"倫理学A"
+        },
+        "3":{
             "Time":"END",
             "Class":"END"
         }
@@ -12,22 +18,18 @@
 
     "Tue":{
         "1":{
-            "Time":"845",
-            "Class":"Chinese (E)"
+            "Time":"0855",
+            "Class":"基礎数学"
         },
         "2":{
-            "Time":null,
-            "Class":null
+            "Time":"1045",
+            "Class":"ビジネスデータ分析"
         },
         "3":{
-            "Time":"135",
-            "Class":"Management Information:Special Lecture A"
+            "Time":"1305",
+            "Class":"AI・データサイエンス入門（F）"
         },
         "4":{
-            "Time":"1455",
-            "Class":"Culture of the Chinese Speaking World b (B)"
-        },
-        "5":{
             "Time":"END",
             "Class":"END"
         } 
@@ -35,14 +37,18 @@
 
     "Wed":{
         "1":{
-            "Time":"845",
-            "Class":"Introduction to Programming"
+            "Time":"0855",
+            "Class":"ネットワーク論"
         },
         "2":{
-            "Time":"145",
-            "Class":"Business Science (A)"
+            "Time":"1045",
+            "Class":"AI・データサイエンス基礎１"
         },
         "3":{
+            "Time":"1305",
+            "Class":"地理学a（A）"
+        },
+        "4":{
             "Time":"END",
             "Class":"END"
         }
@@ -50,22 +56,14 @@
 
     "Thu":{
         "1":{
-            "Time":"845",
-            "Class":"Introduction to Bookkeeping &Accounting 2 (A)"
+            "Time":"0855",
+            "Class":"日本史a（A）"
         },
         "2":{
-            "Time":null,
-            "Class":null
+            "Time":"1045",
+            "Class":"経営情報特別講義B（ITビジネス論）"
         },
         "3":{
-            "Time":"135",
-            "Class":"Introduction to Marketing and E-Commerce (A)"
-        },
-        "4":{
-            "Time":"1455",
-            "Class":"Study Skills2 (5A)"
-        },
-        "5":{
             "Time":"END",
             "Class":"END"
         }
@@ -73,16 +71,16 @@
 
     "Fri":{
         "1":{
-            "Time":"845",
-            "Class":"Career Development b(E)"
+            "Time":"0855",
+            "Class":"自然科学史a"
         },
         "2":{
-            "Time":"145",
-            "Class":"Chinese 2 (E)"
+            "Time":"1045",
+            "Class":"プログラミング１（B）"
         },
         "3":{
-            "Time":"135",
-            "Class":"Business Science (A)"
+            "Time":"1305",
+            "Class":"生涯スポーツ論a（A）"
         },
         "4":{
             "Time":"END",
@@ -92,6 +90,10 @@
 
     "Sat":{
         "1":{
+            "Time":"1219",
+            "Class":"TEST1"
+        },
+        "2":{
             "Time":"END",
             "Class":"END"
         }
