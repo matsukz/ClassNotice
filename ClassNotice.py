@@ -6,54 +6,43 @@ from discord_webhook import DiscordWebhook
 
 StopFlag = 0
 
-Webhook_url = ""
+print("===DAYSTART===")
+print(datetime.datetime.now())
 
-def DAY():
-    global ClassNo
-    global StopFlag
-    global impjson
-    global Today
+NowDate = datetime.date.today()
+loadjson = open(
+        "Class.json",
+        "r",
+        encoding="utf-8"
+    )
 
-    print("===DAYSTART===")
-    print(datetime.datetime.now())
+impjson = json.load(loadjson)
 
-    NowDate = datetime.date.today()
-    loadjson = open(
-            "Class.json",
-            "r",
-            encoding="utf-8"
-        )
+Webhook_url = impjson["Webhook"]        
 
-    impjson = json.load(loadjson)
-            
+print("DB:IMPJSON")
+Week = [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+]
 
-    print("DB:IMPJSON")
-    Week = [
-        "Mon",
-        "Tue",
-        "Wed",
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun"
-    ]
+i = 0
+while not list(impjson.keys())[i] == Week[NowDate.weekday()]:
+    i += 1
+Today = list(impjson.keys())[i]
+print(Today)
 
-    i = 0
-    while not list(impjson.keys())[i] == Week[NowDate.weekday()]:
-        i = i + 1
-    Today = list(impjson.keys())[i]
-    print(Today)
+loadjson.close()
 
-    loadjson.close()
+ClassNo = 1
+StopFlag = 0
 
-    global ClassNo
-    ClassNo = 1
-    global StopFlag
-    StopFlag = 0
-
-DAY()
-
-def CheckTime():
+def Notice():
     global ClassNo
     global StopFlag
     global impjson
@@ -76,22 +65,22 @@ def CheckTime():
             except Exception as e:
                 print("Webhook error!")
 
-            ClassNo = ClassNo + 1
+            ClassNo += 1
 
             if impjson[Today][str(ClassNo)]["Time"] == "END":
                 Send = DiscordWebhook(url=Webhook_url,content="今日の授業はこれでおしまいです。")
                 response = Send.execute()
+                StopFlag += 1
             else:
-                pass  
-
+                pass
         else:
             print("NOT MATCH")
 
     except TypeError:
         print("SKIP NULL")
-        ClassNo = ClassNo + 1
+        ClassNo += 1
 
-schedule.every(1).minutes.do(CheckTime)
+schedule.every(1).minutes.do(Notice)
 
 while StopFlag == 0:
     schedule.run_pending()
