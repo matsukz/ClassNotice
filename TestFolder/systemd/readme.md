@@ -5,7 +5,9 @@ systemdでClassNoticeをコントロールします。
 * ディレクトリ
   * `/opt`  
 * 権限は0775
-  * sudo chmod 0755 /opt/pythonfile.py
+  * sudo chmod 0775 /opt/pythonfile.py
+  * pipで外部モジュールを利用している場合は`sudo`でインストールし直す
+  * `open()`でファイルを読み込むときはフルパスを記述する
 
 ## ClassNotice.service
 * ディレクトリ
