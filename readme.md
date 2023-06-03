@@ -1,4 +1,4 @@
-# 依存関係
+# インストールが必要なライブラリ
 [python-discord-webhook - GitHub](https://github.com/lovvskillz/python-discord-webhook)
 
 # 抱えてる課題
