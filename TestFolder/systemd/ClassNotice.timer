@@ -1,9 +1,9 @@
 [Unit]
-Description = Run ClassNotice.service at 08:00
+Description=Run Test.service at 08:40
 
 [Timer]
-OnCalender = *-*-* 08:40:00
-Unit = ClassNotice.service
+OnCalendar=08:40:00
+Unit=Test.service
 
 [Install]
-WantedBy = timers.target
+WantedBy=timers.target
