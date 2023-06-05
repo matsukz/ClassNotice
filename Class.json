@@ -3,24 +3,24 @@
 
     "Mon":{
         "1":{
-            "Time":"0855",
+            "Time":"1655",
             "Class":null
         },
         "2":{
-            "Time":"1045",
+            "Time":"1657",
             "Class":null
         },
         "3":{
-            "Time":"1305",
+            "Time":"1659",
             "Class":"コンピュータ構成論"
         },
         "4":{
-            "Time":"1045",
+            "Time":"1701",
             "Class":"倫理学A"
         },
         "5":{
             "Time":"END",
-            "Class":"END"
+            "Class":"Finish"
         }
     },
 
@@ -39,7 +39,7 @@
         },
         "4":{
             "Time":"END",
-            "Class":"END"
+            "Class":"Finish"
         } 
     },
 
@@ -58,7 +58,7 @@
         },
         "4":{
             "Time":"END",
-            "Class":"END"
+            "Class":"Finish"
         }
     },
 
@@ -73,7 +73,7 @@
         },
         "3":{
             "Time":"END",
-            "Class":"END"
+            "Class":"Finish"
         }
     },
 
@@ -92,7 +92,7 @@
         },
         "4":{
             "Time":"END",
-            "Class":"END"
+            "Class":"Finish"
         }
     },
 
