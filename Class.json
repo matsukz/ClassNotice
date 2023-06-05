@@ -3,11 +3,11 @@
 
     "Mon":{
         "1":{
-            "Time":"1655",
+            "Time":"0855",
             "Class":null
         },
         "2":{
-            "Time":"1657",
+            "Time":"1045",
             "Class":null
         },
         "3":{
@@ -40,7 +40,7 @@
         "4":{
             "Time":"END",
             "Class":"Finish"
-        } 
+        }
     },
 
     "Wed":{
