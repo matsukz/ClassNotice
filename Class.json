@@ -3,14 +3,22 @@
 
     "Mon":{
         "1":{
-            "Time":"1305",
-            "Class":"コンピュータ構成論"
+            "Time":"0855",
+            "Class":null
         },
         "2":{
             "Time":"1045",
-            "Class":"倫理学A"
+            "Class":null
         },
         "3":{
+            "Time":"1305",
+            "Class":"コンピュータ構成論"
+        },
+        "4":{
+            "Time":"1045",
+            "Class":"倫理学A"
+        },
+        "5":{
             "Time":"END",
             "Class":"END"
         }
@@ -90,10 +98,6 @@
 
     "Sat":{
         "1":{
-            "Time":"1219",
-            "Class":"TEST1"
-        },
-        "2":{
             "Time":"END",
             "Class":"END"
         }
