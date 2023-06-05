@@ -11,14 +11,14 @@ print(datetime.datetime.now())
 
 NowDate = datetime.date.today()
 loadjson = open(
-        "Class.json",
+        "/opt/ClassNotice/Class.json",
         "r",
         encoding="utf-8"
     )
 
 impjson = json.load(loadjson)
 
-Webhook_url = impjson["Webhook"]        
+Webhook_url = impjson["Webhook"]
 
 print("DB:IMPJSON")
 Week = [
