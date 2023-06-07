@@ -95,7 +95,8 @@ try:
                         Logfile.write("Posted Webhook\n")
                     except Exception as e:
                         Logfile.write("Webhook error!\n")
-
+                        print("Webhook error!\n")
+                        
                 # 最後の授業ですか？
                 ClassNo += 1
 
@@ -110,11 +111,12 @@ try:
                     pass
 
             else:
-                if NotMatchCount != 70:
+                if NotMatchCount != 130:
                     Logfile.write("NOT MATCH:" + str(NotMatchCount) + "\n")
                     NotMatchCount += 1
                 else:
                     Logfile.write("NotMatchCount error!\n")
+                    print("NotMatchCount error!\n")
                     LoopFlag = False
 
         except TypeError:
@@ -132,4 +134,5 @@ finally:
     Logfile.write("==============\n")
     Logfile.close()
 
+print("Error")
 print("End:" + str(datetime.datetime.now()))
