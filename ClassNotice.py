@@ -18,20 +18,19 @@ Logfile = open(
             encoding="utf-8"
 )
 
-try:
-# 最下部(finally)と繋がっている   
+try: #最下部(finally)と繋がっている
 
     Logfile.write("\n")
     Logfile.write("===DAYSTART===\n")
     Logfile.write(str(datetime.datetime.now()) + "\n")
 
-    try:# Jsonから各種データをロードし変数に格納する。
+    try: #Jsonから各種データをロードし変数に格納する。
         NowDate = datetime.date.today()
         loadjson = open(
                 # Windows ver
                 "Class.json",
                 # UNIX ver
-                # /opt/ClassNotice/ClassNotice.pys
+                # /opt/ClassNotice/ClassNotice.json
                 "r",
                 encoding="utf-8"
         )
@@ -40,7 +39,6 @@ try:
 
         Webhook_url = impjson["Webhook"]
 
-        Logfile.write("DB:IMPJSON\n")
         Week = [
             "Mon",
             "Tue",
@@ -64,7 +62,7 @@ try:
         ERROR += 1
         LoopFlag = False
 
-    try:# 今日の授業一覧を通知する
+    try: #今日の授業一覧を通知する
         ClassNo = 1
         Message = "本日の授業は\n"
         for item in impjson[Today].values():
@@ -90,7 +88,7 @@ try:
         LoopFlag = False
 
     NotMatchCount = 0
-    ClassNo = 1 # ClassNoは再利用するためリセット
+    ClassNo = 1 #ClassNoは再利用するためリセット
 
     def Notice():
         global impjson, Today
@@ -128,7 +126,7 @@ try:
                         Logfile.write("Send_Class" + str(e) +"\n")
                         LoopFlag = False
                         ERROR += 1
-                        
+
                 # 最後の授業ですか？
                 ClassNo += 1
 
