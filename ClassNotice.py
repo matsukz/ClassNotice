@@ -14,7 +14,7 @@ Logfile = open(
             #"/home/.log"
             "a",
             encoding="utf-8"
-            )
+)
 
 try:
 # 最下部(finally)と繋がっている   
@@ -23,6 +23,7 @@ try:
     Logfile.write("===DAYSTART===\n")
     Logfile.write(str(datetime.datetime.now()) + "\n")
 
+    # Jsonから各種データをロードし変数に格納する。
     NowDate = datetime.date.today()
     loadjson = open(
             # Windows ver
@@ -31,7 +32,7 @@ try:
             # /opt/ClassNotice/ClassNotice.pys
             "r",
             encoding="utf-8"
-        )
+    )
 
     impjson = json.load(loadjson)
 
@@ -56,8 +57,29 @@ try:
 
     loadjson.close()
 
-    NotMatchCount = 0
+    # 今日の授業一覧を通知する
     ClassNo = 1
+    Message = "本日の授業は\n"
+
+    for item in impjson[Today].values():
+        if item["Class"] == "Finish":
+            Message += "です。"
+        elif item["Class"] == "END":
+            Message = Message.rstrip(Message)
+        elif item["Class"] is None:
+            Message += (str(ClassNo) + "限目：空きコマ\n")
+        else:
+            Message += (str(ClassNo) + "限目：" + item["Class"] + "（" + item["Room"] + "）\n")
+        ClassNo += 1
+
+    Send = DiscordWebhook(
+        url=Webhook_url,
+        content=Message
+    )
+    response = Send.execute()
+    
+    NotMatchCount = 0
+    ClassNo = 1 # ClassNoは再利用するためリセット
     LoopFlag = True
 
     def Notice():
@@ -90,7 +112,7 @@ try:
                         Send = DiscordWebhook(
                             url=Webhook_url,
                             content=Message
-                            )
+                        )
                         response = Send.execute()
                         Logfile.write("Posted Webhook\n")
                     except Exception as e:
@@ -104,7 +126,7 @@ try:
                     Send = DiscordWebhook(
                         url=Webhook_url,
                         content="今日の授業はこれでおしまいです。"
-                        )
+                    )
                     response = Send.execute()
                     LoopFlag = False
                 else:
@@ -134,5 +156,4 @@ finally:
     Logfile.write("==============\n")
     Logfile.close()
 
-print("Error")
 print("End:" + str(datetime.datetime.now()))
