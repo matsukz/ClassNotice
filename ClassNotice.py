@@ -92,7 +92,7 @@ try: #最下部(finally)と繋がっている
 
     def Notice():
         global impjson, Today
-        global NotMatchCount, ERROR
+        global ClassNo, NotMatchCount, ERROR
         global LoopFlag
         
         Logfile.write("===== " + str(ClassNo) + " =====\n")
@@ -141,8 +141,8 @@ try: #最下部(finally)と繋がっている
                     pass
 
             else:
-                if NotMatchCount != 130:
-                    Logfile.write("NOT MATCH:" + str(NotMatchCount) + "\n")
+                if NotMatchCount != 150:
+                    Logfile.write("Not Match:" + str(NotMatchCount) + "\n")
                     NotMatchCount += 1
                 else:
                     Logfile.write("NotMatchCount error!\n")
