@@ -9,9 +9,11 @@ print("Start:" + str(datetime.datetime.now()))
 LoopFlag = True
 ERROR = 0
 
+LogName = "CN_" + str(datetime.datetime.now().date()) + ".log"
+
 Logfile = open(
             # Windows ver
-            "Log.txt",
+            "log\\" + LogName,
             # UNIX ver
             #"/home/.log"
             "a",
@@ -21,7 +23,7 @@ Logfile = open(
 try: #最下部(finally)と繋がっている
 
     Logfile.write("\n")
-    Logfile.write("===DAYSTART===\n")
+    Logfile.write("\n======DAYSTART======\n")
     Logfile.write(str(datetime.datetime.now()) + "\n")
 
     try: #Jsonから各種データをロードし変数に格納する。
@@ -165,7 +167,7 @@ try: #最下部(finally)と繋がっている
 finally:
     Logfile.write("ERROR:" + str(ERROR) + "\n")
     Logfile.write(str(datetime.datetime.now()) + "\n")
-    Logfile.write("==============\n")
+    Logfile.write("====================\n")
     Logfile.close()
 
 print("End:" + str(datetime.datetime.now()))
