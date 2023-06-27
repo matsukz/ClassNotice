@@ -9,24 +9,41 @@ print("Start:" + str(datetime.datetime.now()))
 LoopFlag = True
 ERROR = 0
 
-LogName = "CN_" + str(datetime.datetime.now().date()) + ".log"
+def send(Message):
+    global LoopFlag
+    try:
+        Text = DiscordWebhook(
+            url=Webhook_url,
+            content=Message
+        )
+        response = Text.execute()
+    except Exception as e:
+        print(e)
+        LoopFlag = False
 
-Logfile = open(
-            # Windows ver
-            "log\\" + LogName,
-            # UNIX ver
-            #"/home/.log"
-            "a",
-            encoding="utf-8"
-)
+def writelog(log):
+    try:
+        LogName = "CN_" + str(datetime.datetime.now().date()) + ".log"
+        Logfile = open(
+                # Windows ver
+                "log\\" + LogName,
+                # UNIX ver
+                #"/home/.log"
+                "a",
+                encoding="utf-8"
+        )
+        Logfile.write(log)
+        Logfile.close()
+    except Exception as e:
+        print("ログの書き込みに失敗しました")
+        print(e)
 
-try: #最下部(finally)と繋がっている
+try:
+    log = "\n======DAYSTART======\n"
+    log += str(datetime.datetime.now()) + "\n"
+    writelog(log)
 
-    Logfile.write("\n")
-    Logfile.write("\n======DAYSTART======\n")
-    Logfile.write(str(datetime.datetime.now()) + "\n")
-
-    try: #Jsonから各種データをロードし変数に格納する。
+    try:
         NowDate = datetime.date.today()
         loadjson = open(
                 # Windows ver
@@ -55,12 +72,13 @@ try: #最下部(finally)と繋がっている
         while not list(impjson.keys())[i] == Week[NowDate.weekday()]:
             i += 1
         Today = list(impjson.keys())[i]
-        Logfile.write(Today + "\n")
+        writelog("Today : " + Today + "\n")
 
         loadjson.close()
+
     except Exception as e:
         print("Impjson:" + str(e) + "\n")
-        Logfile.write("Impjson:" + str(e) + "\n")
+        writelog("Impjson:" + str(e) + "\n")
         ERROR += 1
         LoopFlag = False
 
@@ -78,34 +96,31 @@ try: #最下部(finally)と繋がっている
                 Message += (str(ClassNo) + "限目：" + item["Class"] + "（" + item["Room"] + "）\n")
             ClassNo += 1
 
-        Send = DiscordWebhook(
-            url=Webhook_url,
-            content=Message
-        )
-        response = Send.execute()
+        send(Message)
+
     except Exception as e:
         print("Todays_Class:" + str(e) + "\n")
-        Logfile.write("Todays_Class:" + str(e) + "\n")
+        writelog("Todays_Class:" + str(e) + "\n")
         ERROR += 1
         LoopFlag = False
 
     NotMatchCount = 0
     ClassNo = 1 #ClassNoは再利用するためリセット
 
-    def Notice():
+    def notice():
         global impjson, Today
         global ClassNo, NotMatchCount, ERROR
         global LoopFlag
         
-        Logfile.write("===== " + str(ClassNo) + " =====\n")
+        writelog("===== " + str(ClassNo) + " =====\n")
         Now = datetime.datetime.now().strftime("%H%M")
-        Logfile.write("NowTime = " + Now + "\n")
+        writelog("NowTime = " + Now + "\n")
 
         try:
             ClassTime = impjson[Today][str(ClassNo)]["Time"]
             # "Time" == "END" のとき　授業がない
             if ClassTime == "END":
-                Logfile.write("Nothing School\n")
+                writelog("Nothing School\n")
                 LoopFlag = False
 
             # "Time" == 現在時(Now)のとき
@@ -113,19 +128,16 @@ try: #最下部(finally)と繋がっている
                 NotMatchCount = 0
                 # "Class" is Null
                 if impjson[Today][str(ClassNo)]["Class"] is None:
-                    Logfile.write("SKIP NULL\n")
+                    writelog("SKIP NULL\n")
                 else:
                     try:
                         Message = str(ClassNo) + "限目：" + impjson[Today][str(ClassNo)]["Class"] + " の出席登録が開始されました。"
-                        Send = DiscordWebhook(
-                            url=Webhook_url,
-                            content=Message
-                        )
-                        response = Send.execute()
-                        Logfile.write("Posted Webhook\n")
+                        print(Message)
+                        send(Message)
+                        writelog("Posted Webhook\n")
                     except Exception as e:
                         print("Send_Class" + str(e) +"\n")
-                        Logfile.write("Send_Class" + str(e) +"\n")
+                        writelog("Send_Class" + str(e) +"\n")
                         LoopFlag = False
                         ERROR += 1
 
@@ -133,41 +145,36 @@ try: #最下部(finally)と繋がっている
                 ClassNo += 1
 
                 if impjson[Today][str(ClassNo)]["Class"] == "Finish":
-                    Send = DiscordWebhook(
-                        url=Webhook_url,
-                        content="今日の授業はこれでおしまいです。"
-                    )
-                    response = Send.execute()
+                    send("今日の授業はこれでおしまいです。")
                     LoopFlag = False
                 else:
                     pass
-
             else:
                 if NotMatchCount != 150:
-                    Logfile.write("Not Match:" + str(NotMatchCount) + "\n")
+                    writelog("Not Match:" + str(NotMatchCount) + "\n")
                     NotMatchCount += 1
                 else:
-                    Logfile.write("NotMatchCount error!\n")
+                    writelog("NotMatchCount error!\n")
                     print("NotMatchCount error!\n")
                     ERROR += 1
                     LoopFlag = False
 
         except Exception as e:
-            Logfile.write(str(e) + "\n")
+            writelog(str(e) + "\n")
             print(str(e) + "\n")
             ERROR += 1
             LoopFlag = False
 
-    schedule.every(1).minutes.do(Notice)
+    schedule.every(1).minutes.do(notice)
 
     while LoopFlag == True:
         schedule.run_pending()
         time.sleep(1)
 
 finally:
-    Logfile.write("ERROR:" + str(ERROR) + "\n")
-    Logfile.write(str(datetime.datetime.now()) + "\n")
-    Logfile.write("====================\n")
-    Logfile.close()
+    log = "ERROR:" + str(ERROR) + "\n"
+    log += str(datetime.datetime.now()) + "\n"
+    log += "====================\n"
+    writelog(log)
 
 print("End:" + str(datetime.datetime.now()))
