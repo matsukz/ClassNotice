@@ -4,7 +4,7 @@
 # できること 
 授業開始5分前になるとdiscordに出席登録が開始された旨のメッセージを送信する
 
-![img](img.png)
+![img](IMG_5106.jpg)
 
 # 参考
 [pythonによるスケジュール(計画実行)プログラム](https://qiita.com/hiratarich/items/3e932b84b599762ed913)（閲覧日2023年1月16日）
