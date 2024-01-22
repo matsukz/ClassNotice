@@ -1,4 +1,4 @@
-# インストールが必要なライブラリ
+# 出席登録しろ
 [python-discord-webhook - GitHub](https://github.com/lovvskillz/python-discord-webhook)
 
 # できること 
